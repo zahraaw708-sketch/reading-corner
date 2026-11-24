@@ -123,7 +123,6 @@ def show(rows, prefix):
                 with card(f"card_{prefix}{b['id']}"):
                     st.image(cover(b["isbn"]), use_container_width=True)
                     if b["isbn"]: st.image(barcode_img(b["isbn"]), use_container_width=True)
-                        if b["isbn"]: st.image(barcode_img(b["isbn"]), use_container_width=True)
                     st.markdown(f"**{btitle(b)}**  \n*{b['author']}*")
                     st.caption(f"{G(b['genre'])} · {L(b['level'])} · {t('age')} {b['min_age']}+")
                     with st.expander(t("synopsis")):
