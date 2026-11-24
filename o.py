@@ -17,7 +17,14 @@ ar_mode = True  # set below from the sidebar
 
 def t(k):
     return T[k][0 if ar_mode else 1]
+import barcode
+from barcode.writer import ImageWriter
+from io import BytesIO
 
+def barcode_img(isbn):
+    buf = BytesIO()
+    barcode.get("code128", str(isbn), writer=ImageWriter()).write(buf)
+    return buf.getvalue()
 
 def G(x):
     return GENRE_AR.get(x, x) if ar_mode else x
